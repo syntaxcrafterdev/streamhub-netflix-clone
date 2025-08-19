@@ -1,0 +1,183 @@
+/* Netflix Landing Page Clone - Custom Styles */
+
+/* Hero Background */
+.hero-bg {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                url('https://assets.nflxext.com/ffe/siteui/vlv3/9d3533b2-0e2b-40b2-95e0-ecd7979cc88b/a3873901-5b7c-46eb-b9fa-12fea5197bd3/IN-en-20240311-popsignuptwoweeks-perspective_alpha_website_large.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Mobile Responsive Hero Background */
+@media (max-width: 768px) {
+    .hero-bg {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                    url('https://assets.nflxext.com/ffe/siteui/vlv3/9d3533b2-0e2b-40b2-95e0-ecd7979cc88b/a3873901-5b7c-46eb-b9fa-12fea5197bd3/IN-en-20240311-popsignuptwoweeks-perspective_alpha_website_large.jpg');
+    }
+}
+
+/* Card Hover Effects */
+.card-hover:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+/* Custom Netflix Colors */
+:root {
+    --netflix-red: #E50914;
+    --netflix-dark-red: #B20710;
+}
+
+/* Smooth Transitions */
+* {
+    transition: all 0.3s ease;
+}
+
+/* Focus States */
+input:focus {
+    outline: none;
+    border-color: white;
+}
+
+/* Button Hover Effects */
+.btn-netflix {
+    background-color: var(--netflix-red);
+    transition: background-color 0.3s ease;
+}
+
+.btn-netflix:hover {
+    background-color: var(--netflix-dark-red);
+}
+
+/* Navigation Hover Effects */
+nav button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Link Hover Effects */
+a:hover {
+    text-decoration: underline;
+}
+
+/* FAQ Accordion Styles */
+.hs-accordion-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Language Toggle Hover */
+#language-toggle:hover,
+#footer-language-toggle:hover {
+    background-color: white;
+    color: black;
+}
+
+/* Email Input Styling */
+.email-input {
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 1px solid #4a5568;
+}
+
+.email-input:focus {
+    border-color: white;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Video Container Styling */
+.video-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.video-container video {
+    width: 75%;
+    height: auto;
+}
+
+/* Download Animation Container */
+.download-animation {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: black;
+    border: 2px solid #4a5568;
+    border-radius: 0.75rem;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    width: 75%;
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.25rem;
+    }
+    
+    h2 {
+        font-size: 1.875rem;
+    }
+    
+    p {
+        font-size: 1.125rem;
+    }
+}
+
+@media (min-width: 768px) {
+    h1 {
+        font-size: 3.75rem;
+    }
+    
+    h2 {
+        font-size: 3rem;
+    }
+    
+    p {
+        font-size: 1.25rem;
+    }
+}
+
+/* Dark Mode Support */
+.dark {
+    background-color: #111827;
+    color: #f9fafb;
+}
+
+.dark .hero-bg {
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), 
+                url('https://assets.nflxext.com/ffe/siteui/vlv3/9d3533b2-0e2b-40b2-95e0-ecd7979cc88b/a3873901-5b7c-46eb-b9fa-12fea5197bd3/IN-en-20240311-popsignuptwoweeks-perspective_alpha_website_large.jpg');
+}
+
+/* Loading Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1f2937;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #4b5563;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #6b7280;
+} 

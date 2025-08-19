@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Clone</title>
+    <base target="_self">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@preline/preline@2.0.0/dist/preline.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        netflix: '#E50914',
+                        netflixDark: '#B20710',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-bg {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://assets.nflxext.com/ffe/siteui/vlv3/9d3533b2-0e2b-40b2-95e0-ecd7979cc88b/a3873901-5b7c-46eb-b9fa-12fea5197bd3/IN-en-20240311-popsignuptwoweeks-perspective_alpha_website_large.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        @media (max-width: 768px) {
+            .hero-bg {
+                background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                            url('https://assets.nflxext.com/ffe/siteui/vlv3/9d3533b2-0e2b-40b2-95e0-ecd7979cc88b/a3873901-5b7c-46eb-b9fa-12fea5197bd3/IN-en-20240311-popsignuptwoweeks-perspective_alpha_website_large.jpg');
+            }
+        }
+        .card-hover:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-black text-white dark:bg-gray-900 dark:text-gray-100">
+    <!-- Navigation -->
+    <nav class="absolute w-full z-10 px-4 py-3 md:px-12 flex justify-between items-center">
+        <div class="flex items-center">
+            <a href="#" id="logo" class="text-netflix font-bold text-3xl md:text-4xl">NETFLIX</a>
+        </div>
+        <div class="flex items-center space-x-4">
+            <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-800">
+                <i class="fas fa-moon dark:hidden"></i>
+                <i class="fas fa-sun hidden dark:inline"></i>
+            </button>
+            <button id="language-toggle" class="px-3 py-1 border border-white rounded-md hover:bg-white hover:text-black transition">
+                <i class="fas fa-globe mr-1"></i> English
+            </button>
+            <button id="signin-btn" class="bg-netflix hover:bg-netflixDark px-3 py-1 rounded-md font-medium transition">
+                Sign In
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg h-screen flex items-center justify-center text-center px-4">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">Unlimited movies, TV shows and more</h1>
+            <p class="text-xl md:text-2xl mb-6">Watch anywhere. Cancel anytime.</p>
+            <p class="text-lg md:text-xl mb-8">Ready to watch? Enter your email to create or restart your membership.</p>
+            <div class="flex flex-col md:flex-row gap-4 max-w-2xl mx-auto">
+                <input type="email" placeholder="Email address" class="flex-grow px-4 py-3 rounded bg-black bg-opacity-70 border border-gray-600 focus:outline-none focus:border-white">
+                <button class="bg-netflix hover:bg-netflixDark px-6 py-3 rounded-md font-medium text-xl flex items-center justify-center">
+                    Get Started <i class="fas fa-chevron-right ml-2"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-16 px-4 border-t-8 border-gray-800">
+        <div class="max-w-6xl mx-auto">
+            <!-- Feature 1 -->
+            <div class="flex flex-col md:flex-row items-center justify-between mb-16">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-4">Enjoy on your TV</h2>
+                    <p class="text-xl">Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.</p>
+                </div>
+                <div class="md:w-1/2 relative">
+                    <img src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/tv.png" alt="TV" class="w-full">
+                    <div class="absolute top-0 left-0 w-full h-full flex items-center justify-center">
+                        <video autoplay loop muted playsinline class="w-3/4">
+                            <source src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-tv-in-0819.m4v" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="flex flex-col md:flex-row-reverse items-center justify-between mb-16">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pl-8">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-4">Download your shows to watch offline</h2>
+                    <p class="text-xl">Save your favourites easily and always have something to watch.</p>
+                </div>
+                <div class="md:w-1/2 relative">
+                    <img src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/mobile-0819.jpg" alt="Mobile" class="w-full">
+                    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 bg-black border-2 border-gray-600 rounded-xl p-2 flex items-center w-3/4">
+                        <img src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/boxshot.png" alt="Stranger Things" class="h-16 mr-4">
+                        <div>
+                            <div class="font-bold">Stranger Things</div>
+                            <div class="text-blue-500">Downloading...</div>
+                        </div>
+                        <div class="ml-auto">
+                            <i class="fas fa-download text-blue-500 text-2xl"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="flex flex-col md:flex-row items-center justify-between mb-16">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-4">Watch everywhere</h2>
+                    <p class="text-xl">Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV.</p>
+                </div>
+                <div class="md:w-1/2 relative">
+                    <img src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/device-pile-in.png" alt="Devices" class="w-full">
+                    <div class="absolute top-0 left-0 w-full h-full flex items-center justify-center">
+                        <video autoplay loop muted playsinline class="w-3/4">
+                            <source src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-devices-in.m4v" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 px-4 border-t-8 border-gray-800">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl md:text-5xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+            
+            <div class="space-y-4 mb-12">
+                <div class="hs-accordion bg-gray-800 rounded-lg overflow-hidden" id="faq-accordion">
+                    <!-- FAQ items will be generated here -->
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <p class="text-lg md:text-xl mb-8">Ready to watch? Enter your email to create or restart your membership.</p>
+                <div class="flex flex-col md:flex-row gap-4 max-w-2xl mx-auto">
+                    <input type="email" placeholder="Email address" class="flex-grow px-4 py-3 rounded bg-black bg-opacity-70 border border-gray-600 focus:outline-none focus:border-white">
+                    <button class="bg-netflix hover:bg-netflixDark px-6 py-3 rounded-md font-medium text-xl flex items-center justify-center">
+                        Get Started <i class="fas fa-chevron-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-4 border-t-8 border-gray-800 text-gray-400">
+        <div class="max-w-6xl mx-auto">
+            <p class="mb-8">Questions? Call 000-800-919-1694</p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                <a href="#" class="hover:underline">FAQ</a>
+                <a href="#" class="hover:underline">Help Centre</a>
+                <a href="#" class="hover:underline">Account</a>
+                <a href="#" class="hover:underline">Media Centre</a>
+                <a href="#" class="hover:underline">Investor Relations</a>
+                <a href="#" class="hover:underline">Jobs</a>
+                <a href="#" class="hover:underline">Ways to Watch</a>
+                <a href="#" class="hover:underline">Terms of Use</a>
+                <a href="#" class="hover:underline">Privacy</a>
+                <a href="#" class="hover:underline">Cookie Preferences</a>
+                <a href="#" class="hover:underline">Corporate Information</a>
+                <a href="#" class="hover:underline">Contact Us</a>
+                <a href="#" class="hover:underline">Speed Test</a>
+                <a href="#" class="hover:underline">Legal Notices</a>
+                <a href="#" class="hover:underline">Only on Netflix</a>
+            </div>
+            <div class="mb-8">
+                <button id="footer-language-toggle" class="px-3 py-1 border border-gray-400 rounded-md hover:bg-white hover:text-black transition">
+                    <i class="fas fa-globe mr-1"></i> English
+                </button>
+            </div>
+            <p>Netflix India</p>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Data
+        const faqs = [
+            {
+                question: "What is Netflix?",
+                answer: "Netflix is a streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries and more – on thousands of internet-connected devices. You can watch as much as you want, whenever you want, without a single ad – all for one low monthly price. There's always something new to discover, and new TV shows and movies are added every week!"
+            },
+            {
+                question: "How much does Netflix cost?",
+                answer: "Watch Netflix on your smartphone, tablet, Smart TV, laptop, or streaming device, all for one fixed monthly fee. Plans range from ₹149 to ₹649 a month. No extra costs, no contracts."
+            },
+            {
+                question: "Where can I watch?",
+                answer: "Watch anywhere, anytime. Sign in with your Netflix account to watch instantly on the web at netflix.com from your personal computer or on any internet-connected device that offers the Netflix app, including smart TVs, smartphones, tablets, streaming media players and game consoles. You can also download your favourite shows with the iOS, Android, or Windows 10 app. Use downloads to watch while you're on the go and without an internet connection. Take Netflix with you anywhere."
+            },
+            {
+                question: "How do I cancel?",
+                answer: "Netflix is flexible. There are no annoying contracts and no commitments. You can easily cancel your account online in two clicks. There are no cancellation fees – start or stop your account anytime."
+            },
+            {
+                question: "What can I watch on Netflix?",
+                answer: "Netflix has an extensive library of feature films, documentaries, TV shows, anime, award-winning Netflix originals, and more. Watch as much as you want, anytime you want."
+            },
+            {
+                question: "Is Netflix good for kids?",
+                answer: "The Netflix Kids experience is included in your membership to give parents control while kids enjoy family-friendly TV shows and films in their own space. Kids profiles come with PIN-protected parental controls that let you restrict the maturity rating of content kids can watch and block specific titles you don't want kids to see."
+            }
+        ];
+
+        // Generate FAQ items
+        const faqAccordion = document.getElementById('faq-accordion');
+        faqs.forEach((faq, index) => {
+            const faqItem = document.createElement('div');
+            faqItem.className = 'hs-accordion-group';
+            faqItem.innerHTML = `
+                <button class="hs-accordion-toggle hs-accordion-active:text-white w-full text-left py-4 px-6 text-xl font-medium flex justify-between items-center hover:bg-gray-700 transition" aria-controls="faq-${index}">
+                    ${faq.question}
+                    <svg class="hs-accordion-active:hidden block w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+                    </svg>
+                    <svg class="hs-accordion-active:block hidden w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"/>
+                    </svg>
+                </button>
+                <div id="faq-${index}" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" aria-labelledby="faq-${index}">
+                    <div class="p-6">
+                        <p class="text-gray-300">${faq.answer}</p>
+                    </div>
+                </div>
+            `;
+            faqAccordion.appendChild(faqItem);
+        });
+
+        // Initialize Preline accordion
+        document.addEventListener('DOMContentLoaded', () => {
+            HSAccordion.autoInit();
+        });
+
+        // Theme toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        themeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('color-theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+        });
+
+        // Check for saved theme preference or use system preference
+        if (localStorage.getItem('color-theme') === 'dark' || (!localStorage.getItem('color-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+
+        // Prevent default anchor behavior
+        document.querySelectorAll('a').forEach(anchor => {
+            anchor.addEventListener('click', (e) => {
+                e.preventDefault();
+                // In a real app, you would handle navigation here
+                console.log(`Navigating to: ${anchor.getAttribute('href')}`);
+            });
+        });
+
+        // Sign in button
+        document.getElementById('signin-btn').addEventListener('click', () => {
+            alert('Sign in functionality would go here');
+        });
+
+        // Language toggle
+        document.getElementById('language-toggle').addEventListener('click', () => {
+            alert('Language selection would appear here');
+        });
+
+        // Footer language toggle
+        document.getElementById('footer-language-toggle').addEventListener('click', () => {
+            alert('Language selection would appear here');
+        });
+    </script>
+</body>
+</html>
